@@ -1,6 +1,6 @@
-import { request } from './api.js';
-import Cart from './Cart.js';
-import ProductOptions from './ProductOptions.js';
+import { request } from '../api.js';
+import Cart from '../Cart.js';
+import ProductOptions from '../ProductOptions.js';
 
 /**
  * @state
@@ -13,7 +13,6 @@ import ProductOptions from './ProductOptions.js';
  */
 export default function ProductPage({ $target, initialState }) {
   const $product = document.createElement('div');
-  $target.appendChild($product);
 
   this.state = initialState;
 
@@ -31,6 +30,8 @@ export default function ProductPage({ $target, initialState }) {
       basePrice: product.basePrice,
       selectedOptions: selectedOptions,
     });
+
+    this.render();
   };
 
   const productOptions = new ProductOptions({
@@ -108,8 +109,7 @@ export default function ProductPage({ $target, initialState }) {
     });
   };
 
-  this.init = () => {
-    requestOptionData(this.state.productId);
+  this.render = () => {
+    $target.appendChild($product);
   };
-  this.init();
 }

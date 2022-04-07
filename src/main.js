@@ -1,11 +1,7 @@
-import ProductPage from './ProductPage.js';
+import App from './App.js';
 
 const $target = document.querySelector('.app');
-const DEFAULT_PRODUCT_ID = 1;
 
-new ProductPage({
+new App({
   $target,
-  initialState: {
-    productId: DEFAULT_PRODUCT_ID,
-  },
 });
